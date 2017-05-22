@@ -1,14 +1,15 @@
 <ion-content>
   <ion-list>
-    <ion-item>
-      <ion-label fixed>Usuari:</ion-label>
-      <ion-input type="text" value="" placeholder="usuari"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed>Password:</ion-label>
-      <ion-input type="password" placeholder="password"></ion-input>
-    </ion-item>
-
+    <form [formGroup]="myForm" (ngSubmit)="login()" novalidate>
+      <ion-item>
+        <ion-label fixed>Usuari:</ion-label>
+        <ion-input formControlName="nom" type="text" value="" placeholder="usuari"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Password:</ion-label>
+        <ion-input formControlName="pass" type="password" placeholder="password"></ion-input>
+      </ion-item>
+      <button ion-button block type="submit" [disabled]="myForm.invalid">Ingressar</button>
+    </form>
   </ion-list>
-  <button (click)="login()" ion-button>Ingressar</button>
 </ion-content>
